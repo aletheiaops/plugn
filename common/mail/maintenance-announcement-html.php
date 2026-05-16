@@ -236,7 +236,7 @@ use common\models\BankDiscount;
       <div
          style="font-family:Proxima Nova, Arial, Arial, Helvetica, sans-serif;font-size:15px;line-height:24px;text-align:left;color:#000000;"
       >
-        Hello <?= $agent->agent_name ?>,
+        Hello <?= Html::encode($agent->agent_name) ?>,
       </div>
 
               </td>

@@ -8,11 +8,11 @@ use common\models\Order;
 ?>
 
 <div class="verify-form">
-    <h1>Hello <?= $order->restaurant->name ?> Team,</h1>
+    <h1>Hello <?= Html::encode($order->restaurant->name) ?> Team,</h1>
 
 
     <p class="lead">
-      An issue occurred, in which you received a payment from one of your customers (<?=  $order->customer_name ?>) while the item was out of stock. Please check this issue with the customer to see if they require a refund.
+      An issue occurred, in which you received a payment from one of your customers (<?= Html::encode($order->customer_name) ?>) while the item was out of stock. Please check this issue with the customer to see if they require a refund.
 
       <br/>
       <br/>

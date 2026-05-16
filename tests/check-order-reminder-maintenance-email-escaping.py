@@ -11,6 +11,10 @@ checks = {
     "common/mail/maintenance-announcement-html.php": [
         "Html::encode($agent->agent_name)",
     ],
+    "common/mail/out-of-stock-order-html.php": [
+        "Html::encode($order->restaurant->name)",
+        "Html::encode($order->customer_name)",
+    ],
 }
 
 for rel_path, required in checks.items():
@@ -27,6 +31,10 @@ forbidden = {
     "common/mail/maintenance-announcement-html.php": [
         "Hello <?= $agent->agent_name ?>",
     ],
+    "common/mail/out-of-stock-order-html.php": [
+        "Hello <?= $order->restaurant->name ?>",
+        "(<?=  $order->customer_name ?>)",
+    ],
 }
 
 for rel_path, raw_patterns in forbidden.items():
@@ -35,4 +43,4 @@ for rel_path, raw_patterns in forbidden.items():
         if pattern in source:
             raise SystemExit(f"{rel_path} still renders raw value: {pattern}")
 
-print("order reminder and maintenance email escaping checks passed")
+print("email escaping checks passed")
